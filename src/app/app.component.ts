@@ -13,8 +13,8 @@ export class AppComponent implements OnDestroy {
   routerEventSubscription: Subscription;
   routeParamsSubscription: Subscription;
 
-  constructor(public coreService: CoreService, public otherService: OtherService, private route: ActivatedRoute
-  , private router: Router
+  constructor(public coreService: CoreService, public otherService: OtherService,
+    private route: ActivatedRoute, private router: Router
   ) {
     this.routerEventSubscription = this.router.events.subscribe((params) => {
       // NavigationStart, NavigationEnd, RoutesRecognized
