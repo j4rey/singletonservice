@@ -8,6 +8,7 @@ import { PageoneComponent } from './pageone/pageone.component';
 import { PagetwoComponent } from './pagetwo/pagetwo.component';
 import { CoreModule } from './core/core.module';
 import { OtherService } from './other.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const testRoute: Route[] = [
   { path: 'one', component: PageoneComponent},
@@ -28,7 +29,10 @@ const testRoute: Route[] = [
     CoreModule.forRoot(),
     RouterModule.forRoot(testRoute)
   ],
-  providers: [OtherService],
+  providers: [
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy},
+    OtherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
